@@ -1,0 +1,269 @@
+/* Import fonts with fallbacks */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bubblegum+Sans&family=Patrick+Hand&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #ff8c00;
+  --accent-color: #ffd700;
+  --background-light: #fff6e5;
+  --background-dark: #ffecd9;
+  --shadow-color: rgba(255, 107, 53, 0.2);
+}
+
+/* Header Container */
+.header-container {
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--background-dark) 100%);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Rainbow Border Fix */
+.header-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+}
+
+/* Logo Container */
+.logo-container {
+  flex-shrink: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+  transform-origin: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Navigation */
+.nav-menu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 30px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  position: relative;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(5px)) {
+  .nav-menu {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Nav Link */
+.nav-link {
+  font-family: 'Bubblegum Sans', 'Comic Sans MS', cursive;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Auth Button */
+.auth-button {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 3;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .mobile-menu-button {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--background-light);
+    display: none;
+    box-shadow: 0 4px 15px var(--shadow-color);
+  }
+
+  .nav-menu.open {
+    display: flex;
+    -webkit-animation: slideDown 0.3s ease-out forwards;
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .auth-button {
+    width: 90%;
+    margin: 1rem auto;
+  }
+}
+
+/* Fix for Safari */
+@supports (-webkit-touch-callout: none) {
+  .header-container {
+    border-image: none;
+    border-bottom: 5px solid var(--primary-color);
+  }
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+  width: 24px;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: relative;
+  display: block;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  bottom: -8px;
+}
+
+/* Hamburger Animation */
+.mobile-menu-button.open .hamburger-icon {
+  transform: rotate(45deg);
+}
+
+.mobile-menu-button.open .hamburger-icon::before {
+  top: 0;
+  transform: rotate(0deg);
+  opacity: 0;
+}
+
+.mobile-menu-button.open .hamburger-icon::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+.auth-button:hover,
+.auth-button:focus {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px var(--shadow-color);
+  outline: none;
+}
+
+/* Active Link Style */
+.nav-link.active {
+  background: white;
+  color: var(--secondary-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* Hover Effects */
+.nav-link:hover {
+  transform: translateY(-2px);
+  background: white;
+  color: var(--secondary-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.auth-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+/* Additional Animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+} 

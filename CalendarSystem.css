@@ -1,0 +1,125 @@
+/* Calendar Theme Colors */
+:root {
+  --calendar-primary: #2196f3;
+  --calendar-grey: #f5f5f5;
+  --calendar-text: #333333;
+  --calendar-today-bg: #e3f2fd;
+  --calendar-border: #e0e0e0;
+  --calendar-hover: #f8f8f8;
+  --calendar-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Event Colors */
+.event-academic {
+  background-color: #2196f3;
+}
+
+.event-meeting {
+  background-color: #4caf50;
+}
+
+.event-deadline {
+  background-color: #f44336;
+}
+
+.event-social {
+  background-color: #9c27b0;
+}
+
+/* Modal Animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.event-modal {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Hover Effects */
+.nav-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.event:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 1rem;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .event-modal {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .nav-button,
+  .add-event-button {
+    display: none;
+  }
+
+  .calendar-container {
+    padding: 0;
+  }
+
+  .event {
+    border: 1px solid #000;
+    color: #000;
+    background: none !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .event-modal,
+  .nav-button:hover,
+  .event:hover {
+    animation: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Focus States */
+.nav-button:focus,
+.event:focus,
+.button:focus {
+  outline: 2px solid var(--calendar-primary);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.calendar-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Empty States */
+.day-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+  font-style: italic;
+} 

@@ -1,0 +1,125 @@
+/* Main container styling */
+.FAQContainer {
+  max-width: 1000px;
+  margin: 2rem auto;
+  font-family: 'Comic Sans MS', 'Rounded Mplus 1c', sans-serif;
+  background-color: #fff9f0;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h2 {
+  color: #ff6b6b;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 0px #ffe5e5;
+}
+
+/* FAQ Item container */
+.FAQItem {
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.FAQItem:hover {
+  transform: translateX(10px);
+}
+
+/* Question button styling */
+.Question {
+  width: 100%;
+  text-align: left;
+  padding: 1.2rem;
+  background: #4ecdc4;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.Question:hover {
+  background: #45b7ae;
+  border: 3px solid #ffe66d;
+}
+
+/* Plus/Minus icon styling */
+.Question span {
+  font-size: 1.5rem;
+  color: #ffe66d;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+/* Answer styling */
+.Answer {
+  padding: 1.2rem;
+  background: #ffffff;
+  border-radius: 0 0 15px 15px;
+  margin-top: 0.5rem;
+  color: #2c3e50;
+  line-height: 1.6;
+  border-left: 4px solid #4ecdc4;
+  font-size: 1.05rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .FAQContainer {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .Question {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .Answer {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+}
+
+/* Animation for answer reveal */
+.Answer {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.Answer[data-isopen="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Decorative elements */
+.FAQContainer::before {
+  content: '📚';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 2rem;
+}
+
+.FAQContainer::after {
+  content: '✏️';
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  font-size: 2rem;
+} 

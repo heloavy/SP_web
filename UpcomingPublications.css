@@ -1,0 +1,207 @@
+.publications-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #fff6e5 0%, #ffe5f1 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background */
+.publications-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, #ff6b35 1px, transparent 1px),
+              radial-gradient(circle at 70% 70%, #ff8c61 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-shadow: 3px 3px 0px #ffe0d1;
+  position: relative;
+}
+
+/* Decorative elements */
+.title::before {
+  content: "📚";
+  position: absolute;
+  left: -40px;
+  top: -10px;
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.title::after {
+  content: "✏️";
+  position: absolute;
+  right: -40px;
+  top: -10px;
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.publication-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  position: relative;
+}
+
+.publication-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+  border-color: #ff6b35;
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
+}
+
+.publication-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid #ff6b35;
+  transition: all 0.3s ease;
+}
+
+.publication-card:hover .publication-image {
+  transform: scale(1.05);
+}
+
+.publication-content {
+  padding: 1.5rem;
+}
+
+.publication-title {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.publication-date {
+  color: #666;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: #ffe0d1;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.publication-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-family: Arial, sans-serif;
+}
+
+.learn-more-button {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.learn-more-button:hover {
+  background: #ff8c61;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+}
+
+/* Book icon animation */
+.book-icon {
+  animation: bounce 2s infinite;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .publications-section {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .title::before,
+  .title::after {
+    display: none;
+  }
+
+  .publications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .publication-image {
+    height: 200px;
+  }
+}
+
+/* Card staggered animation on load */
+.publication-card {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.publication-card:nth-child(1) { animation-delay: 0.1s; }
+.publication-card:nth-child(2) { animation-delay: 0.3s; }
+.publication-card:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

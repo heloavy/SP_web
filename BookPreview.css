@@ -1,0 +1,226 @@
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.preview-container {
+  background: linear-gradient(135deg, #fff6e5 0%, #ffe5f1 100%);
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+  border: 4px solid #ff6b35;
+  animation: scaleIn 0.3s ease;
+}
+
+.book-cover {
+  background: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 3px solid #ffe0d1;
+}
+
+.cover-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.cover-image:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.book-cover h2 {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 2px 2px 0px #ffe0d1;
+}
+
+.book-cover p {
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.1rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.button-primary {
+  background: #ff6b35;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+}
+
+.button-primary:hover {
+  background: #ff8c61;
+  transform: translateY(-3px);
+}
+
+.button-secondary {
+  background: white;
+  color: #666;
+  border: 2px solid #ffe0d1;
+}
+
+.button-secondary:hover {
+  background: #ffe0d1;
+  transform: translateY(-3px);
+}
+
+.preview-content {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.preview-content h3 {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 0px #ffe0d1;
+}
+
+.preview-pages {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.preview-page {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.1);
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.preview-page:hover {
+  border-color: #ff6b35;
+  transform: translateY(-5px);
+}
+
+.preview-page p {
+  color: #666;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Animations */
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.button svg {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+/* Scrollbar Styling */
+.preview-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+  background: #ffe0d1;
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+  background: #ff6b35;
+  border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .preview-container {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    height: 95vh;
+  }
+
+  .book-cover {
+    border-right: none;
+    border-bottom: 3px solid #ffe0d1;
+  }
+
+  .cover-image {
+    max-width: 200px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Loading State */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+} 

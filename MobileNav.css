@@ -1,0 +1,148 @@
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: #ff6b35;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+  z-index: 1001;
+}
+
+.mobile-menu-button:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.95), rgba(255, 230, 209, 0.95));
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  padding: 2rem;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+    url('/book-pattern.png');
+}
+
+.mobile-menu-content.open {
+  right: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ff6b35;
+  cursor: pointer;
+  font-size: 1.8rem;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.close-button:hover {
+  transform: rotate(90deg);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.mobile-nav-links::before {
+  content: "📚";
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+}
+
+.mobile-nav-link {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  background: #fff;
+  border: 2px dashed transparent;
+}
+
+.mobile-nav-link:hover {
+  color: #ff6b35;
+  background: #fff9f5;
+  border-color: #ff6b35;
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Add fun icons next to links */
+.mobile-nav-link::before {
+  margin-right: 10px;
+}
+
+.mobile-nav-link[href="/"]::before { content: "🏠"; }
+.mobile-nav-link[href="/author"]::before { content: "✍️"; }
+.mobile-nav-link[href="/about"]::before { content: "ℹ️"; }
+.mobile-nav-link[href="/blog"]::before { content: "📖"; }
+.mobile-nav-link[href="/contact"]::before { content: "📧"; }
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+/* Animation for menu items */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav-link {
+  animation: slideIn 0.3s ease forwards;
+  opacity: 0;
+}
+
+.mobile-nav-link:nth-child(1) { animation-delay: 0.1s; }
+.mobile-nav-link:nth-child(2) { animation-delay: 0.2s; }
+.mobile-nav-link:nth-child(3) { animation-delay: 0.3s; }
+.mobile-nav-link:nth-child(4) { animation-delay: 0.4s; }
+.mobile-nav-link:nth-child(5) { animation-delay: 0.5s; } 

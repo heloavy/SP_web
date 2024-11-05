@@ -1,0 +1,146 @@
+.learning-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #fff6e5 0%, #ffe5f1 100%);
+  position: relative;
+}
+
+/* Decorative elements */
+.learning-section::before {
+  content: "🎨";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2.5rem;
+}
+
+.learning-section::after {
+  content: "✏️";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2.5rem;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+  color: #ff6b35;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-shadow: 3px 3px 0px #ffe0d1;
+}
+
+.stages-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.stage:hover {
+  transform: translateX(10px);
+  border-color: #ff6b35;
+  box-shadow: 0 12px 20px rgba(255, 107, 53, 0.2);
+}
+
+/* Alternating backgrounds */
+.stage:nth-child(odd) {
+  background: #fff9f5;
+}
+
+.stage-number {
+  background-color: #ff6b35;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-right: 2rem;
+  flex-shrink: 0;
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+  animation: bounce 2s infinite;
+}
+
+.stage-content {
+  flex: 1;
+}
+
+.stage-title {
+  color: #ff6b35;
+  margin-bottom: 0.5rem;
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+  font-size: 1.6rem;
+}
+
+.stage-description {
+  color: #666;
+  font-family: 'Arial Rounded MT Bold', 'Varela Round', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.stage-grade {
+  color: #ff6b35;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Level-specific colors */
+.stage:nth-child(1) .stage-number { background-color: #FF9933; }
+.stage:nth-child(2) .stage-number { background-color: #33CC33; }
+.stage:nth-child(3) .stage-number { background-color: #3366FF; }
+.stage:nth-child(4) .stage-number { background-color: #9933CC; }
+.stage:nth-child(5) .stage-number { background-color: #FF3366; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .learning-section {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .stage {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .stage-number {
+    margin: 0 0 1rem 0;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .stage-title {
+    font-size: 1.4rem;
+  }
+
+  .stage-description {
+    font-size: 1rem;
+  }
+} 

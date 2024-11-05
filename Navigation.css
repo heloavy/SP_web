@@ -1,0 +1,150 @@
+.nav-container {
+  background: linear-gradient(90deg, #ff6b35 0%, #ff8c61 100%);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+  position: relative;
+  z-index: 100;
+}
+
+/* Decorative book pattern */
+.nav-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(45deg, 
+      rgba(255, 255, 255, 0.1) 0px,
+      rgba(255, 255, 255, 0.1) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  z-index: -1;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  margin-right: 10px;
+  font-size: 2.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect with sliding background */
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::before {
+  left: 0;
+}
+
+/* Active link style */
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Book session button special styling */
+.book-session {
+  background: white;
+  color: #ff6b35;
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.book-session:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: #ffe0d1;
+}
+
+/* Icon decorations for links */
+.nav-link::after {
+  margin-left: 8px;
+  font-size: 1.2rem;
+}
+
+.nav-link[href="/"]::after { content: "🏠"; }
+.nav-link[href="/about"]::after { content: "ℹ️"; }
+.nav-link[href="/blog"]::after { content: "📚"; }
+.nav-link[href="/author"]::after { content: "✍️"; }
+.nav-link[href="/contact"]::after { content: "📧"; }
+.nav-link[href="/book-session"]::after { content: "📅"; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: none; /* Hide regular nav on mobile */
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Apply bounce animation to logo */
+.logo-icon {
+  animation: bounce 2s infinite ease-in-out;
+} 
