@@ -1,0 +1,202 @@
+.progress-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff6e5 0%, #ffe5f1 100%);
+  min-height: 100vh;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.progress-header h2 {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 0px #ffe0d1;
+}
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff6b35;
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
+}
+
+.stat-card h3 {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.stat-card h2 {
+  font-size: 2.5rem;
+  color: #ff6b35;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.progress-bar {
+  height: 12px;
+  background: #ffe0d1;
+  border-radius: 6px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #ff6b35;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff6b35;
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
+}
+
+.course-header {
+  padding: 1.5rem;
+  border-bottom: 2px solid #ffe0d1;
+}
+
+.course-header h3 {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff6b35;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.course-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.chapter-list {
+  padding: 1rem;
+}
+
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chapter:hover {
+  background: #fff6e5;
+  transform: translateX(5px);
+}
+
+.completion-icon {
+  color: #ddd;
+}
+
+.completion-icon.completed {
+  color: #ff6b35;
+  animation: bounce 0.5s ease;
+}
+
+.chapter p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.achievement-stars {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.achievement-stars svg {
+  font-size: 2rem;
+  color: #ffd700;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .progress-container {
+    padding: 1rem;
+  }
+
+  .progress-header h2 {
+    font-size: 2rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-card {
+    margin-bottom: 1rem;
+  }
+
+  .chapter {
+    padding: 0.6rem;
+  }
+}
+
+/* Loading Animation */
+.loading {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+} 
